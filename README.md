@@ -1,16 +1,58 @@
-# React + Vite
+# Pomodoro Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ejercicio de React construido como parte del curso de Sistemas Web. Implementa `useState`, `useEffect` y `useRef` a través de tres niveles de dificultad progresiva.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Video explicativo
 
-## React Compiler
+> **[Ver video aquí](#)**
+> **
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19 + Vite 8
+- CSS plano (sin frameworks)
+- Claude Code para scaffolding y asistencia
+
+---
+
+## Niveles
+
+| Nivel | Nombre | Qué incluye |
+|-------|--------|-------------|
+| 1 | Guiado | Timer básico — `useState`, `useEffect`, `useRef`, formato MM:SS |
+| 2 | Semi-guiado | Alternancia trabajo/descanso + historial de sesiones |
+| 3 | Reto | Configuración personalizada, barra de progreso, sonido, estadísticas y sesión parcial |
+
+---
+
+## Cómo correr el proyecto
+
+```bash
+# Instalar dependencias
+npm install
+
+# Modo desarrollo
+npm run dev
+
+# Build de producción
+npm run build
+```
+
+Abre `http://localhost:5173` en tu navegador.
+
+---
+
+## Estructura relevante
+
+```
+src/
+├── components/
+│   ├── Pomodoro.jsx   # Componente principal con los 3 niveles
+│   └── Pomodoro.css   # Estilos en CSS plano
+├── App.jsx            # Renderiza <Pomodoro />
+└── main.jsx           # Entry point
+```
