@@ -1,0 +1,309 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Pomodoro Timer — Estilos
+   CSS plano, sin frameworks. Variables CSS para colores de modo.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Paleta de colores por modo */
+:root {
+  --color-work: #e74c3c;
+  --color-work-light: #fdecea;
+  --color-break: #27ae60;
+  --color-break-light: #eafaf1;
+  --color-bg: #f5f5f5;
+  --color-card: #ffffff;
+  --color-text: #2c3e50;
+  --color-muted: #7f8c8d;
+  --color-border: #dce0e4;
+  --color-disabled: #bdc3c7;
+  --radius: 10px;
+}
+
+/* ── Contenedor principal: centrado en pantalla ── */
+.pomodoro-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 16px;
+  background-color: var(--color-bg);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: var(--color-text);
+}
+
+.pomodoro-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+
+/* ── Sección de configuración ── */
+.config-section {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 16px 24px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+
+.config-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.config-input {
+  width: 60px;
+  padding: 6px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.config-input:focus {
+  outline: none;
+  border-color: var(--color-work);
+}
+
+/* Input deshabilitado mientras el timer corre */
+.config-input:disabled {
+  background: #f0f0f0;
+  color: var(--color-disabled);
+  cursor: not-allowed;
+}
+
+/* ── Indicador de modo (Trabajo / Descanso) ── */
+.mode-indicator {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* Color rojo para modo trabajo */
+.mode-work {
+  background-color: var(--color-work-light);
+  color: var(--color-work);
+  border: 1px solid var(--color-work);
+}
+
+/* Color verde para modo descanso */
+.mode-break {
+  background-color: var(--color-break-light);
+  color: var(--color-break);
+  border: 1px solid var(--color-break);
+}
+
+/* ── Display del tiempo: grande y legible ── */
+.timer-display {
+  font-size: clamp(4rem, 15vw, 7rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums; /* evita saltos al cambiar dígitos */
+  letter-spacing: 4px;
+  line-height: 1;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+/* ── Barra de progreso ── */
+.progress-bar-container {
+  width: min(360px, 90vw);
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s linear, background-color 0.4s;
+}
+
+/* Color de relleno según el modo */
+.progress-bar-work {
+  background-color: var(--color-work);
+}
+
+.progress-bar-break {
+  background-color: var(--color-break);
+}
+
+/* ── Botones ── */
+.button-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s, background-color 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Estado deshabilitado: visualmente inactivo */
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background-color: var(--color-work);
+  color: #fff;
+  min-width: 120px;
+}
+
+.btn-secondary {
+  background-color: #95a5a6;
+  color: #fff;
+}
+
+.btn-partial {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+/* ── Sección de estadísticas ── */
+.stats-section {
+  width: min(420px, 95vw);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-work);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+
+.stats-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+  margin-bottom: 8px;
+}
+
+.stats-section p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+/* ── Historial de sesiones ── */
+.sessions-section {
+  width: min(420px, 95vw);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+
+.sessions-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+  margin-bottom: 8px;
+}
+
+/* Scroll si la lista supera 240px */
+.sessions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Scrollbar discreta */
+.sessions-list::-webkit-scrollbar {
+  width: 5px;
+}
+.sessions-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sessions-list::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+.session-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--color-bg);
+  font-size: 0.88rem;
+}
+
+.session-number {
+  font-weight: 700;
+  color: var(--color-muted);
+  min-width: 28px;
+}
+
+.session-type {
+  flex: 1;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.session-type-work {
+  background-color: var(--color-work-light);
+  color: var(--color-work);
+}
+
+.session-type-partial {
+  background-color: #fef9e7;
+  color: #d68910;
+}
+
+.session-duration {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.session-time {
+  color: var(--color-muted);
+  font-size: 0.82rem;
+}
