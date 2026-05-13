@@ -6,8 +6,7 @@ Ejercicio de React construido como parte del curso de Sistemas Web. Implementa `
 
 ## Video explicativo
 
-> **[Ver video aquí](#)**
-> **
+> **[Ver video aquí](https://youtu.be/PDwyzF27u8g)**
 
 ---
 
